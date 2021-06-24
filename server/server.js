@@ -5,7 +5,7 @@ const Path = require("path");
 const startServer = async () => {
   const server = Hapi.server({
     host: "localhost",
-    port: 80,
+    port: 5000,
     routes: {
       cors: {
         credentials: true,

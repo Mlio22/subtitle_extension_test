@@ -12,7 +12,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     id = id.substr(0, id.indexOf("&"));
 
     return {
-      redirectUrl: `http://localhost:80/subtitles/${id}`,
+      redirectUrl: `http://localhost:5000/subtitles/${id}`,
     };
   },
   {
