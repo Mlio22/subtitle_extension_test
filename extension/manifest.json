@@ -1,0 +1,32 @@
+{
+    "name": "Youtube Subtitle",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts":[
+        {
+            "matches": [
+                "http://www.youtube.com/*",
+                "https://www.youtube.com/*"
+            ],
+            "css": ["./css/ext.css"],
+            "js": ["scripts/content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "browser_action":{
+        "default_title": "Youtube Subtitle (Alpha) 1.0"
+    },
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "*://*/*"
+    ],
+    "background": {
+        "scripts": ["scripts/background.js"]
+    },
+    "web_accessible_resources": [
+        "subtitles/subtitle.ytt"
+     ]
+}
+
