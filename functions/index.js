@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     console.log(error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "failed fetching data" }),
+      body: JSON.stringify({ error: error }),
     };
   }
 };
