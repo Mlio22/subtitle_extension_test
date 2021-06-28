@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/server.js",
-    "start-prod": "node ./server/server.js"
+    "start-prod": "node ./server/server.js",
+    "start:lambda": "netlify-lambda serve functions"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   "homepage": "https://github.com/Mlio22/subtitle_extension_test#readme",
   "dependencies": {
     "@hapi/hapi": "^20.1.4",
-    "@hapi/inert": "^6.0.3"
-  }
+    "@hapi/inert": "^6.0.3",
+    "netlify-lambda": "^2.0.10"
+  },
+  "devDependencies": {}
 }
