@@ -27,4 +27,12 @@ module.exports = [
       return response;
     },
   },
+
+  {
+    method: "GET",
+    path: "/",
+    handler: (request, h) => {
+      return "response";
+    },
+  },
 ];

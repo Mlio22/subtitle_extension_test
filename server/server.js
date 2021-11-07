@@ -1,6 +1,13 @@
 const Hapi = require("@hapi/hapi");
 const routes = require("./routes");
 const Path = require("path");
+const fs = require("fs");
+const server = new Hapi.Server();
+
+const tls = {
+  key: fs.readFileSync("./server/certificates/system.key"),
+  cert: fs.readFileSync("./server/certificates/system.pem"),
+};
 
 const startServer = async () => {
   const server = Hapi.server({
@@ -14,6 +21,7 @@ const startServer = async () => {
         relativeTo: Path.join(__dirname, "subtitles"),
       },
     },
+    tls: tls,
   });
 
   await server.register(require("@hapi/inert"));
