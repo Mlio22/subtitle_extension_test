@@ -1,22 +1,22 @@
 // extension click (top right menu)
+// todo: create extension settings page
 chrome.browserAction.onClicked.addListener(function (activeTab) {
   var newURL = "http://stackoverflow.com/";
   chrome.tabs.create({ url: newURL });
 });
 
-// detect every request and redirect it if detected to youtube API
+// detect every /user/subtitle request and redirect it to request server
 chrome.webRequest.onBeforeRequest.addListener(
-  (info) => {
-    console.log(info);
-    let id = info.url.replace("https://www.youtube.com/api/timedtext?v=", "");
-    id = id.substr(0, id.indexOf("&"));
+  (details) => {
+    let { url } = details;
 
+    url = url.replace("https://www.youtube.com/user/", "http://localhost:3000/");
     return {
-      redirectUrl: `https://13.251.156.112:5000/subtitles/${id}`,
+      redirectUrl: url,
     };
   },
   {
-    urls: ["https://www.youtube.com/api/timedtext*"],
+    urls: ["https://www.youtube.com/user/subtitle*"],
   },
   ["blocking"]
 );
