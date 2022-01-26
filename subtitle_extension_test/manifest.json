@@ -25,6 +25,6 @@
         "scripts": ["scripts/background.js"]
     },
     "web_accessible_resources": [
-        "scripts/inject.js"
+        "scripts/requestInterceptor.js"
     ]
 }
